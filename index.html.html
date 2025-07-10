@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Básico -->
+    <title>Universo Doctor Who - Um Portfólio Interativo</title>
+    <meta name="description" content="Explore o universo de Doctor Who, conheça os Doutores, seus inimigos e entre em contato através do tempo e espaço.">
+    <meta name="author" content="Darlan - Estudante de Engenharia de Software">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Link para o seu arquivo CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho com Navegação -->
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="#" class="logo" data-page="home">DW-Portfolio</a>
+            <nav>
+                <ul class="main-nav" id="main-nav-links">
+                    <li><a href="#" class="nav-link active" data-page="home">Início</a></li>
+                    <li><a href="#" class="nav-link" data-page="doctors">Doutores</a></li>
+                    <li><a href="#" class="nav-link" data-page="villains">Inimigos</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <!-- Página Inicial -->
+        <section id="home" class="page-content active">
+            <div class="hero-content">
+                <h1>Bem-vindo ao Universo Doctor Who</h1>
+                <p>Uma jornada através do tempo e espaço. Explore as encarnações do Doutor, conheça seus adversários mais temíveis e envie uma mensagem através da fenda temporal.</p>
+            </div>
+        </section>
+
+        <!-- Página dos Doutores -->
+        <section id="doctors" class="page-content">
+            <h2>As Faces do Doutor</h2>
+            <div class="gallery-grid" id="doctors-grid"></div>
+        </section>
+
+        <!-- Página dos Inimigos -->
+        <section id="villains" class="page-content">
+            <h2>Inimigos Icônicos</h2>
+            <div class="gallery-grid" id="villains-grid"></div>
+        </section>
+
+        <!-- Página de Contato -->
+        <section id="contact" class="page-content">
+            <h2>Contato com a Torre de Gallifrey</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Envie uma mensagem através do Vórtice Temporal. Pode levar algum tempo para chegar.</p>
+            
+            <form id="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="name">Seu Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Seu Email (Coordenada Temporal):</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Sua Mensagem:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                <div id="form-feedback"></div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="main-footer">
+        <p>&copy; 2025 - Desenvolvido por Darlan Ravi Oliveira para a disciplina de Programação Front-End. Doctor Who & TARDIS são marcas registradas da BBC.</p>
+    </footer>
+    
+    <!-- Modal para detalhes do Doutor -->
+    <div id="doctor-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <img id="modal-doctor-img" src="" alt="Foto do Doutor" onerror="this.onerror=null;this.src='https://placehold.co/150x150/000/fff?text=Error';">
+        <h2 id="modal-doctor-name"></h2>
+        <p id="modal-doctor-actor"></p>
+        <p id="modal-doctor-desc"></p>
+      </div>
+    </div>
+
+    <!-- Link para o seu arquivo JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

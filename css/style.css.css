@@ -1,0 +1,404 @@
+/* Reset e Configurações Globais */
+:root {
+    --tardis-blue: #003b6f;
+    --gallifrey-gold: #c8a464;
+    --cyber-silver: #c0c0c0;
+    --dark-space: #1a1a1a;
+    --light-text: #f0f0f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--dark-space);
+    color: var(--light-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Tipografia */
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--gallifrey-gold);
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Estrutura Principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Cabeçalho e Navegação */
+.main-header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid var(--tardis-blue);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+.main-nav {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 25px;
+}
+
+.main-nav a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.main-nav a:hover, .main-nav a.active {
+    background-color: var(--tardis-blue);
+    color: var(--gallifrey-gold);
+}
+
+/* Menu Hamburger para Mobile */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--light-text);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Conteúdo da Página */
+.page-content {
+    display: none; /* Escondido por padrão */
+    animation: fadeIn 0.8s;
+}
+
+.page-content.active {
+    display: block; /* Visível quando ativo */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos da Página Inicial */
+#home {
+    text-align: center;
+    padding: 50px 20px;
+    /* IMAGEM DA TARDIS ATUALIZADA AQUI */
+    background: url('../imagens/TARDIS1.jpg') no-repeat center center/cover;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#home .hero-content {
+     background-color: rgba(0,0,0,0.6);
+     padding: 40px;
+     border-radius: 10px;
+     display: inline-block;
+}
+
+#home h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+#home p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Estilos das Páginas Doutores e Inimigos (Grid) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(200, 164, 100, 0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center; /* Ajustado para 'center' para melhores resultados */
+    display: block;
+    background-color: #111; /* Cor de fundo caso a imagem demore a carregar */
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+    color: var(--tardis-blue);
+}
+
+/* Efeito interativo #2: Revelar no Hover (Inimigos) */
+.villain-card {
+    position: relative;
+}
+.villain-card .card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 59, 111, 0.9);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.4s ease-in-out;
+    padding-top: 40px; /* Espaço para o título não ficar colado */
+}
+.villain-card:hover .card-content {
+    transform: translateY(0);
+}
+.villain-card .card-content h3 {
+     color: var(--gallifrey-gold);
+     position: absolute;
+     top: -25px;
+     left: 20px;
+     background: var(--tardis-blue);
+     padding: 5px 10px;
+     border-radius: 5px;
+}
+
+
+/* Estilos da Página de Contato */
+#contact-form {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--gallifrey-gold);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 2px solid var(--tardis-blue);
+    background-color: var(--dark-space);
+    color: var(--light-text);
+    font-size: 1rem;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--gallifrey-gold);
+}
+
+#form-feedback {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none; /* Escondido por padrão */
+}
+
+#form-feedback.success {
+    background-color: #28a745;
+    color: white;
+}
+
+#form-feedback.error {
+    background-color: #dc3545;
+    color: white;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--tardis-blue);
+    color: var(--gallifrey-gold);
+    border: none;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #00569a;
+}
+
+/* Modal (Efeito interativo #1) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: #2a2a2a;
+    margin: 10% auto;
+    padding: 30px;
+    border: 2px solid var(--tardis-blue);
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative;
+    animation: slideIn 0.4s;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); }
+    to { transform: translateY(0); }
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover, .close-btn:focus {
+    color: var(--gallifrey-gold);
+}
+
+#modal-doctor-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    float: left;
+    margin-right: 20px;
+    border: 3px solid var(--tardis-blue);
+}
+
+/* Rodapé */
+.main-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid var(--tardis-blue);
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Altura do header */
+        left: 0;
+        background-color: var(--dark-space);
+    }
+    
+    .main-nav.active {
+        display: flex;
+    }
+
+    .main-nav li {
+        margin: 0;
+        text-align: center;
+    }
+    
+    .main-nav a {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid var(--tardis-blue);
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    /* Animação do Hamburger */
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    #home h1 {
+        font-size: 2.2rem;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 20% auto;
+    }
+}
